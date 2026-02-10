@@ -1,0 +1,12 @@
+/* Dashboard layout */
+.dashboard-wrapper {
+  display: flex;
+}
+
+app-sidebar {
+  width: 240px;
+}
+
+.dashboard-content {
+  flex: 1;
+}
