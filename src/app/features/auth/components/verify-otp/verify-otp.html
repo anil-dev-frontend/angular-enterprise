@@ -1,0 +1,46 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-5">
+
+      <div class="card p-4 shadow rounded-4">
+        <h3 class="text-center mb-4">Reset Password</h3>
+
+        <form [formGroup]="otpForm" (ngSubmit)="submit()">
+
+          <!-- OTP Field -->
+          <div class="mb-3">
+            <label class="form-label">OTP</label>
+            <input type="text" class="form-control" formControlName="otp"
+              [class.is-invalid]="isSubmitted && otpForm.controls['otp'].invalid">
+            <div class="invalid-feedback">
+              OTP required
+            </div>
+          </div>
+
+          <!-- New Password Field -->
+          <div class="mb-3">
+            <label class="form-label">New Password</label>
+            <input type="password" class="form-control" formControlName="newPassword"
+              [class.is-invalid]="isSubmitted && otpForm.controls['newPassword'].invalid">
+            <div class="invalid-feedback">
+              Password min 6 chars
+            </div>
+          </div>
+
+          <!-- Buttons -->
+          <button class="btn btn-primary w-100 mt-3" type="submit">
+            Verify & Reset Password
+          </button>
+
+          <button type="button" class="btn btn-link mt-2 w-100" (click)="resendOtp()">
+            Resend OTP
+          </button>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
