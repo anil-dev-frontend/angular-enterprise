@@ -17,6 +17,7 @@ export class Signup implements OnInit {
   signupForm!: FormGroup;
   showPassword = false;
   showConfirmPassword = false;
+  activeTab: 'login' | 'signup' = 'login';
 
   constructor(
     private fb: FormBuilder,
@@ -25,6 +26,17 @@ export class Signup implements OnInit {
 
   ngOnInit(): void {
     this.formInit();
+    this.goToSignup()
+  }
+
+  goToLogin() {
+    this.activeTab = 'login';
+    this.router.navigate(['/login']);
+  }
+
+  goToSignup() {
+    this.activeTab = 'signup';
+    this.router.navigate(['/signup']);
   }
 
   formInit() {

@@ -1,0 +1,39 @@
+.hero-section {
+  background: linear-gradient(135deg, #0b1c3f, #091c4a);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-title {
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.hero-text {
+  font-size: 16px;
+  opacity: .85;
+}
+
+.home-shape img {
+  position: absolute;
+  animation: float 6s ease-in-out infinite;
+}
+
+.shape1 { top: 20%; left: 5%; }
+.shape2 { top: 70%; left: 10%; }
+.shape3 { top: 25%; right: 10%; }
+.shape4 { bottom: 15%; right: 5%; }
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 36px;
+  }
+}

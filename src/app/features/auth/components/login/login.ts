@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { LoginModel } from '@core/models/login.model';
 import { Auth } from '@features/auth/auth-service/auth';
 import { SHARED_IMPORTS } from '@shared/common/shared.imports';
@@ -19,11 +19,21 @@ export class Login implements OnInit {
     emailId: '',
     password: ''
   };
-
-  constructor(private authServices:Auth) { }
+   activeTab: 'login' | 'signup' = 'login';
+  constructor(private authServices:Auth,public router: Router) { }
 
   ngOnInit(): void {
 
+  }
+
+  goToLogin() {
+    this.activeTab = 'login';
+    this.router.navigate(['/login']);
+  }
+
+  goToSignup() {
+    this.activeTab = 'signup';
+    this.router.navigate(['/signup']);
   }
 
   get f(){

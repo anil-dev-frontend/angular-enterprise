@@ -1,12 +1,16 @@
-<div class="container-fluid min-vh-100 d-flex align-items-center justify-content-center bg-light">
-    <div class="card shadow-lg border-0" style="max-width: 420px; width: 100%;">
+<div class="container d-flex justify-content-center mt-5 mb-5">
+    <div class="card signup-card">
 
-        <div class="card-header bg-primary text-white text-center">
-            <h4 class="mb-0">Login</h4>
-            <small>Access your dashboard</small>
+         <!--TAB SWITCH -->
+        <div class="auth-tabs pt-3 ">
+            <div class="tab-container">
+                <div class="tab" [class.active]="activeTab === 'login'" (click)="goToLogin()">Login</div>
+                <div class="tab" [class.active]="activeTab === 'signup'" (click)="goToSignup()">Sign Up</div>
+            </div>
         </div>
 
         <div class="card-body p-4">
+         <h3 class="text-center mb-4">User Login</h3>
 
             <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
                 <!-- EMAIL -->
@@ -38,7 +42,7 @@
                 </div>
 
                 <!-- BUTTON -->
-                <button type="submit" class="btn btn-primary w-100" [disabled]="loginForm.invalid">
+                <button type="submit" class="btn btncolor w-100" [disabled]="loginForm.invalid">
                     Login
                 </button>
 
