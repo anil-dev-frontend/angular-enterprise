@@ -1,0 +1,33 @@
+<div class="modal-backdrop fade show"></div>
+
+<div class="modal fade show d-block">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+
+      <!-- Header -->
+      <div class="modal-header">
+        <h5 class="modal-title">{{ config.title }}</h5>
+        <button type="button" class="btn-close" (click)="close()"></button>
+      </div>
+
+      <!-- Body -->
+      <div class="modal-body">
+        <p>{{ config.message }}</p>
+      </div>
+
+      <!-- Footer -->
+      <div class="modal-footer">
+        <button
+          *ngFor="let btn of config.buttons"
+          class="btn"
+          [ngClass]="btn.cssClass"
+          (click)="onAction(btn.action)">
+          {{ btn.label }}
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+

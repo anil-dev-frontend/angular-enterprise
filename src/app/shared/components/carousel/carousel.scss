@@ -1,0 +1,88 @@
+.testimonial-section {
+    padding: 120px 0 140px;
+    background: #fff;
+}
+
+.testimonial-section app-section-header {
+    display: block;
+    margin-bottom: 36px;
+}
+
+.testimonial-text {
+    max-width: 860px;
+    margin: 0 auto 45px;
+    font-size: 16px;
+    line-height: 28px;
+    font-style: italic;
+    color: #555;
+}
+
+.testimonial-user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.testimonial-user img {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 12px;
+}
+
+.testimonial-user h4 {
+    margin: 0;
+    font-size: 18px;
+    color: #1f2b5b;
+}
+
+.testimonial-user span {
+    font-size: 14px;
+    color: #6c757d;
+}
+
+
+.testimonial-arrows {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+}
+
+.arrow {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    border: 1px solid #4a6cff;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+}
+
+.arrow::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 14px;
+    height: 14px;
+    border-top: 2px solid #4a6cff;
+    border-right: 2px solid #4a6cff;
+}
+
+.arrow.left::after {
+    transform: rotate(-135deg);
+}
+
+.arrow.right::after {
+    transform: rotate(45deg);
+}
+
+.arrow:hover {
+    background: #4a6cff;
+}
+
+.arrow:hover::after {
+    border-color: #fff;
+}

@@ -1,0 +1,38 @@
+<section class="faq-section py-5">
+  <div class="container">
+    
+    <app-section-header 
+      [subTitle]="'Frequently Asked Questions'" 
+      [mainTitle]="'Have Any Question'"
+      [subClass]="'section-sub-blue'">
+    </app-section-header>
+
+    <div class="faq-container mx-auto" style="max-width: 900px;">
+      @for (item of faqList; track $index) {
+        <div class="faq-item mb-3" [class.active]="activeIndex === $index">
+          
+          <div class="faq-header d-flex justify-content-between align-items-center p-4" 
+               (click)="toggleAccordion($index)">
+            <h6 class="mb-0 fw-medium">{{ item.question }}</h6>
+            
+            <div class="icon-wrapper">
+              @if (activeIndex === $index) {
+                <i class="bi bi-dash-circle-fill text-primary fs-4"></i>
+              } @else {
+                <i class="bi bi-plus-circle-fill text-primary  fs-4"></i>
+              }
+            </div>
+          </div>
+
+          @if (activeIndex === $index) {
+            <div class="faq-body p-4 pt-0">
+              <p class="text-muted mb-0">{{ item.answer }}</p>
+            </div>
+          }
+          
+        </div>
+      }
+    </div>
+
+  </div>
+</section>

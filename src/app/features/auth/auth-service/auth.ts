@@ -45,4 +45,18 @@ export class Auth {
     ) as Observable<string>;
   }
   
+  //UPDATE PASSWORD
+
+
+updatePassword(customerId: number, data: { existingPassword: string; newPassword: string }) {
+  return this.http.put(
+    `${this.baseUrl}/update-password?customerId=${customerId}`,
+    data,
+    { responseType: 'text' }  
+  );
+}
+  // ● GET USER
+  getAllUsers() {
+    return this.api.get(`${this.baseUrl}/GetAllUsers`);
+  }
 }

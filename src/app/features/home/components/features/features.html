@@ -1,0 +1,29 @@
+<section id="features" class="pt-100 pb-70">
+  <div class="container">
+    
+    <app-section-header 
+      [subTitle]="'Our App Feature Lists'" 
+      [mainTitle]="'Great Features'">
+    </app-section-header>
+
+   <div class="row g-4 mt-4">
+  @for (item of features; track item.title) {
+    <div class="col-lg-4 col-md-6" data-aos="fade-up">
+      <div class="feature-card" [ngClass]="item.borderClass">
+        
+        <div class="icon-box mb-4" [class]="item.color">
+          <i class="bi" [ngClass]="item.icon"></i>
+        </div>
+        
+        <h4 class="fw-bold mb-3" style="color: #0b1c3f;">{{ item.title }}</h4>
+        <p class="text-muted" style="font-size: 14px; line-height: 1.8;">
+          {{ item.desc }}
+        </p>
+        
+      </div>
+    </div>
+  }
+</div>
+
+  </div>
+</section>

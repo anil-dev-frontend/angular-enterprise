@@ -1,0 +1,25 @@
+<div class="container mt-4 mb-4">
+
+  <h3 class="mb-3">User List</h3>
+
+  @if (loading) {
+    <div class="text-muted">Loading users...</div>
+  }
+
+  @if (!loading && users.length > 0) {
+    <app-reusable-tabel
+      [columns]="columns"
+      [data]="users"
+      [actions]="true"
+      [pageSize]="5"
+      (edit)="onEdit($event)"
+      (delete)="onDelete($event)">
+    </app-reusable-tabel>
+  }
+
+  @if (!loading && users.length === 0) {
+    <div class="text-muted">No users found.</div>
+  }
+
+</div>
+

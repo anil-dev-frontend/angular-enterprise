@@ -1,0 +1,87 @@
+<div class="table-responsive">
+  <table class="table table-bordered table-hover align-middle">
+
+    <!-- TABLE HEAD -->
+    <thead class="table-light">
+      <tr>
+        @for (col of columns; track col.key) {
+          <th [style.width]="col.width">
+            {{ col.label }}
+          </th>
+        }
+
+        @if (actions) {
+          <th class="text-center" style="width:120px;">
+            Actions
+          </th>
+        }
+      </tr>
+    </thead>
+
+    <!-- TABLE BODY -->
+    <tbody>
+      @for (row of paginatedData; track row.id ?? row) {
+        <tr
+          (click)="onRowClick(row)"
+          [class.pointer]="clickable"
+        >
+
+          <!-- DYNAMIC CELLS -->
+          @for (col of columns; track col.key) {
+            <td>
+              {{ row[col.key] }}
+            </td>
+          }
+
+          <!-- ACTION BUTTONS -->
+          @if (actions) {
+            <td class="text-center">
+
+              <!-- Edit -->
+              <button
+                class="btn btn-sm btn-primary me-1"
+                (click)="edit.emit(row); $event.stopPropagation()">
+                <i class="bi bi-pencil"></i>
+              </button>
+
+              <!-- Delete -->
+              <button
+                class="btn btn-sm btn-danger"
+                (click)="delete.emit(row); $event.stopPropagation()">
+                <i class="bi bi-trash"></i>
+              </button>
+
+            </td>
+          }
+
+        </tr>
+      }
+    </tbody>
+
+  </table>
+</div>
+
+<!-- PAGINATION -->
+@if (totalPages() > 1) {
+  <div class="d-flex justify-content-center mt-3">
+
+    <button
+      class="btn btn-outline-secondary me-2"
+      (click)="changePage(currentPage - 1)"
+      [disabled]="currentPage === 1">
+      Prev
+    </button>
+
+    <span class="mx-2 fw-bold">
+      Page {{ currentPage }} of {{ totalPages() }}
+    </span>
+
+    <button
+      class="btn btn-outline-secondary ms-2"
+      (click)="changePage(currentPage + 1)"
+      [disabled]="currentPage === totalPages()">
+      Next
+    </button>
+
+  </div>
+}

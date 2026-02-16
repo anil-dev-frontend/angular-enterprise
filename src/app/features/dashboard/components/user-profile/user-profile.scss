@@ -1,0 +1,79 @@
+.profile-container {
+  max-width: 350px;
+  margin: 40px auto;
+  padding: 20px;
+  text-align: center;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* Avatar */
+.avatar-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.outer-ring {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 6px solid #1e4f91;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inner-ring {
+  width: 95px;
+  height: 95px;
+  border-radius: 50%;
+  background: #174a8e;
+  border: 4px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.initials {
+  font-size: 36px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.name {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.email,
+.userid {
+  color: #666;
+  margin: 5px 0;
+}
+
+.actions {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.btn {
+  padding: 10px 14px;
+  border-radius: 6px;
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+.btn.blue {
+  background: #1e4f91;
+}
+
+.btn.red {
+  background: #d9534f;
+}

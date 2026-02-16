@@ -33,3 +33,30 @@
 .navbar.scrolled .nav-link.active::after {
   background: #0b1c3f;
 }
+/* Base Style: Home page ke liye (Transparent) */
+.navbar {
+  padding: 20px 0;
+  transition: all 0.4s ease;
+  background: transparent;
+}
+
+.nav-link {
+  color: #fff !important; /* Home page par white */
+  font-weight: 500;
+}
+
+/* Scrolled ya non-home page ke liye */
+.navbar.scrolled {
+  background: #ffffff !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,.08);
+  //padding: 10px 0;
+}
+
+.navbar.scrolled .nav-link,
+.navbar.scrolled .navbar-brand {
+  color: #0b1c3f !important; /* Login/Other pages par dark color */
+}
+
+.navbar.scrolled .nav-link.active::after {
+  background: #0b1c3f;
+}

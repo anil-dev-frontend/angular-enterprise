@@ -1,1 +1,28 @@
-<p>user-profile works!</p>
+<div class="profile-container">
+
+  <div class="avatar-wrapper">
+    <div class="outer-ring">
+      <div class="inner-ring">
+        <span class="initials">{{ initials }}</span>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="name">{{ user.fullName }}</h2>
+  <p class="email">{{ user.emailId }}</p>
+  <p class="userid">User ID: {{ user.userId }}</p>
+
+  <div class="actions m-5 p-5">
+    <button class="btn blue" (click)="goToChangePassword()">Change Password</button>
+    <!-- <button class="btn red" (click)="logout()">Logout</button> -->
+     <button class="btn red" (click)="openLogoutModal()">Logout</button>
+  </div>
+</div>
+
+
+@if(showModal){
+<app-reusable-modal
+  [config]="modalConfig"
+  (action)="onModalAction($event)">
+</app-reusable-modal>
+}

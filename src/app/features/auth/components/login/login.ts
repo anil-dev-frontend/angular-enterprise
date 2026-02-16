@@ -52,7 +52,7 @@ export class Login implements OnInit {
 
           // Save user data
           localStorage.setItem('user', JSON.stringify(res.data));
-          //this.router.navigate(['/dashboard']); 
+          this.router.navigate(['/dashboard']); 
 
         } else {
           alert(res.message); // Invalid user or wrong password

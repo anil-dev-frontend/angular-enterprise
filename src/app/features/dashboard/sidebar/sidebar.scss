@@ -1,0 +1,38 @@
+.sidebar {
+  width: 240px;
+  height: 100vh;
+  background: linear-gradient(135deg, #0b1c3f, #091c4a);
+  color: white;
+  padding: 15px 0;
+}
+
+.logo {
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  padding: 12px 20px;
+  cursor: pointer;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.menu li.active, .menu li:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+
+.sidebar {
+  width: 250px;
+}

@@ -1,20 +1,22 @@
-<ul class="nav flex-column pt-3">
-  <li class="nav-item">
-    <a class="nav-link" routerLink="/dashboard">
-      Dashboard
-    </a>
-  </li>
+<div class="sidebar">
+  <div class="logo">Dashboard</div>
 
-  <li class="nav-item">
-    <a class="nav-link" routerLink="/dashboard/user-profile">
-      User Profile
-    </a>
-  </li>
+  <ul class="menu">
+    <li routerLink="/dashboard" routerLinkActive="active">
+      <i class="bi bi-speedometer2"></i> Dashboard
+    </li>
 
-  <li class="nav-item">
-    <a class="nav-link" routerLink="/dashboard/user-list">
-      User List
-    </a>
-  </li>
-</ul>
+    <li routerLink="/dashboard/profile" routerLinkActive="active">
+      <i class="bi bi-speedometer2"></i> Profile
+    </li>
+
+    <li routerLink="/dashboard/users-list" routerLinkActive="active">
+      <i class="bi bi-people"></i> Users List
+    </li>
+
+    <li routerLink="/dashboard/settings" routerLinkActive="active">
+      <i class="bi bi-gear"></i> Settings
+    </li>
+  </ul>
+</div>
 

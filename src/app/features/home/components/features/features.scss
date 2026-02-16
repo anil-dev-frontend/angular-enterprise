@@ -1,0 +1,57 @@
+/* Header Styles */
+.section-sub {
+    font-size: 15px;
+    color: #e668b3; /* Pink color from your screenshot */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.section-main {
+    font-size: 42px;
+    font-weight: 800;
+    color: #0b1c3f; /* Dark Blue from your design */
+}
+
+/* Feature Card Base Style */
+.feature-card {
+    background: #ffffff;
+    padding: 40px 30px;
+    border-radius: 15px;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    height: 100%;
+    
+    /* Default Border jo aapne manga tha */
+    border-bottom: 4px solid #f0f0f0; 
+    
+    /* Soft Shadow jo visible ho */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); 
+}
+
+/* Hover State */
+.feature-card:hover {
+    transform: translateY(-10px);
+    /* Hover par shadow thodi dark ho jayegi */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Alag-alag cards ke liye default borders (Bottom) */
+/* Aapne jo color manga tha wahi use kiye hain */
+.feature-card.border-blue { border-bottom-color: #4361ee; }
+.feature-card.border-orange { border-bottom-color: #f97316; }
+.feature-card.border-pink { border-bottom-color: #e668b3; }
+
+/* Icon Box Style */
+.icon-box {
+    width: 65px;
+    height: 65px;
+    line-height: 65px;
+    border-radius: 50%;
+    margin: 0 auto 25px;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
