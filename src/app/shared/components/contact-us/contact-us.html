@@ -1,0 +1,97 @@
+<form [formGroup]="contactForm" class="p-5 m-5">
+
+  <label class="form-label fw-semibold">
+    Phone Number<span class="text-danger">*</span>
+  </label>
+  <div class="map-container mt-4">
+  <!-- <google-map height="500px"
+            width="900px"
+            [center]="center"
+            [zoom]="zoom"
+            (mapClick)="moveMap($event)"
+            (mapMousemove)="move($event)">
+</google-map> -->
+<!-- <google-map 
+  height="400px" 
+  width="750px" 
+  [center]="center" 
+  [zoom]="zoom">
+</google-map> -->
+  
+<!-- <div>Latitude: {{display?.lat}}</div>
+<div>Longitude: {{display?.lng}}</div> -->
+</div>
+  <div class="phone-wrapper">
+
+    <!-- DIAL CODE DROPDOWN -->
+    <!-- <ng-select
+      class="dial-code"
+      [items]="countriesList"
+      bindLabel="dialCode"
+      bindValue="dialCode"
+      [searchable]="true"
+      [clearable]="false"
+      [searchPlaceholder]="'Search country'"
+      [dropdownPosition]="'auto'"
+      formControlName="dialCode">
+
+     
+      <ng-template ng-label-tmp let-item="item">
+        {{ item.dialCode }}
+        <span class="arrow">▼</span>
+      </ng-template>
+
+   
+      <ng-template ng-option-tmp let-item="item">
+        {{ item.flag }} {{ item.name }} ({{ item.dialCode }})
+      </ng-template>
+
+    </ng-select> -->
+    <ng-select #countrySelect
+  class="dial-code"
+  [items]="countriesList"
+  bindLabel="name"
+  bindValue="dialCode"
+  [searchable]="true"
+  [clearable]="false"
+  [dropdownPosition]="'auto'"
+  formControlName="dialCode">
+
+  <!-- CUSTOM SEARCH INPUT -->
+  <ng-template ng-dropdown-header let-search="search">
+    <input
+      type="text"
+      class="ng-select-search"
+      placeholder="Search country"
+      (input)="search($any($event.target).value)" />
+  </ng-template>
+
+  <!-- SELECTED VALUE -->
+  <ng-template ng-label-tmp let-item="item">
+    {{ item.dialCode }}
+    <span class="arrow">▼</span>
+  </ng-template>
+
+  <!-- OPTIONS -->
+  <ng-template ng-option-tmp let-item="item">
+    {{ item.flag }} {{ item.name }} ({{ item.dialCode }})
+  </ng-template>
+
+</ng-select>
+
+
+
+    
+
+    <!-- PHONE INPUT -->
+    <input
+      type="text"
+      class="phone-input"
+      placeholder="0000000000"
+      formControlName="phone">
+
+  </div>
+
+</form>
+
+

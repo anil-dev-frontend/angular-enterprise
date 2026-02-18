@@ -4,12 +4,6 @@ import { HomeLayout } from "./home-layout/home-layout";
 
 
 export const HOME_ROUTES: Routes = [
-    // {
-    //     path:'', redirectTo:'home', pathMatch:'full'
-    // },
-    // {
-    //     path:'', loadComponent:() => import('../home/home/home').then(m=>(Home))
-    // }
 
     {
     path: '',
@@ -22,6 +16,7 @@ export const HOME_ROUTES: Routes = [
             .then(m => m.Home)
       }
     ]
-  }
+  },
+  {path:'contact',loadComponent:() => import('../../shared/components/contact-us/contact-us').then(m => m.ContactUs)}
 
 ]

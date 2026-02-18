@@ -1,0 +1,144 @@
+google-map {
+  display: block;
+  min-height: 420px;
+  border-radius: 12px;
+}
+
+@media (max-width: 768px) {
+  google-map {
+    min-height: 300px;
+  }
+}
+.phone-wrapper {
+  display: flex;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  height: 48px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.dial-code {
+  width: 110px;
+  border-right: 1px solid #ced4da;
+  position: relative;
+}
+
+.arrow {
+  font-size: 10px;
+  margin-left: 6px;
+}
+
+::ng-deep .dial-code .ng-select-container {
+  border: none !important;
+  height: 48px;
+  padding-right: 6px;
+}
+
+::ng-deep .ng-dropdown-panel {
+  border-radius: 8px;
+}
+
+::ng-deep .ng-dropdown-panel .ng-dropdown-panel-items {
+  max-height: 220px;
+}
+
+/* Search box styling */
+::ng-deep .ng-select .ng-select-searchable .ng-input > input {
+  padding: 8px;
+}
+
+.phone-input {
+  flex: 1;
+  border: none;
+  padding: 0 12px;
+  font-size: 14px;
+  outline: none;
+}
+
+.phone-wrapper:focus-within {
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 0.15rem rgba(13,110,253,.25);
+}
+.phone-wrapper {
+  overflow: visible; /* VERY IMPORTANT */
+}
+/* wrapper */
+.phone-wrapper {
+  display: flex;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  height: 48px;
+  overflow: visible; /* MUST */
+}
+
+/* ng-select */
+::ng-deep .dial-code .ng-select-container {
+  border: none !important;
+  height: 48px;
+}
+
+/* 🔥 SEARCH INPUT FORCE SHOW */
+::ng-deep .ng-select-searchable .ng-input {
+  display: block !important;
+}
+
+/* dropdown above everything */
+::ng-deep .ng-dropdown-panel {
+  z-index: 9999;
+}
+::ng-deep .ng-select .ng-input > input {
+  border: none !important;
+  box-shadow: none !important;
+}
+/* Search input ko force-display karne ke liye */
+::ng-deep .ng-select.ng-select-opened .ng-select-container .ng-input {
+    display: block !important;
+    opacity: 1 !important;
+    z-index: 5;
+    padding-left: 10px; /* Adjust as needed */
+}
+
+/* Jab search active ho toh dial code text hide ho jaye taaki overlap na ho */
+::ng-deep .ng-select.ng-select-opened .ng-value {
+    display: none !important;
+}
+
+/* Input field ki width fix karne ke liye */
+::ng-deep .ng-select .ng-input > input {
+    width: 100% !important;
+    height: 100% !important;
+}
+/* Dropdown open hone par search box ko dikhane ke liye */
+::ng-deep .dial-code.ng-select-opened {
+  .ng-value {
+    display: none !important; /* Purana selected value hide karein taaki search dikhe */
+  }
+  .ng-input {
+    display: block !important;
+    opacity: 1 !important;
+    left: 10px !important; /* Search typing start position */
+    width: 100% !important;
+    
+    & > input {
+      cursor: text !important;
+    }
+  }
+}
+
+google-map {
+  display: block;
+  width: 100%;
+  height: 450px;
+  border-radius: 15px;
+  overflow: hidden;
+  border: 1px solid #ddd;
+}
+
+.ng-select .ng-input > input::placeholder {
+  color: #999 !important;   /* placeholder color */
+  opacity: 1 !important;
+}
+.ng-select .ng-input > input {
+  color: #000 !important;
+}
