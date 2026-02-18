@@ -8,89 +8,88 @@ import countries from 'world-countries';
 
 @Component({
   selector: 'app-contact-us',
-  imports: [SHARED_IMPORTS,GoogleMapsModule,NgSelectModule],
+  imports: [SHARED_IMPORTS, GoogleMapsModule, NgSelectModule],
   templateUrl: './contact-us.html',
   styleUrl: './contact-us.scss',
 })
-export class ContactUs implements OnInit,AfterViewInit {
- private fb = inject(FormBuilder);
-countriesList: any[] = [];
-contactForm :any
-display: any;
-    center: google.maps.LatLngLiteral = {
-        lat: 22.2736308,
-        lng: 70.7512555
-    };
-    zoom = 6;
-  //   center: google.maps.LatLngLiteral = {lat: 24, lng: 12};
-  // zoom = 4;
+export class ContactUs implements OnInit, AfterViewInit {
 
-@ViewChild('countrySelect', { static: false }) selectRef: any;
+ @ViewChild('countrySelect', { static: false }) selectRef: any;
 
-ngAfterViewInit() {
-  const input =
-    this.selectRef.element.querySelector('.ng-input input');
+  private fb = inject(FormBuilder);
+  countriesList: any[] = [];
+  contactForm: any
+  display: any;
 
-  if (input) {
-    input.setAttribute('placeholder', 'Search country');
-  }
-}
+  center: google.maps.LatLngLiteral = {
+    lat: 22.2736308,
+    lng: 70.7512555
+  };
+  zoom = 6;
 
+  ngAfterViewInit() {
+      const input =
+        this.selectRef.element.querySelector('.ng-input input');
+      if (input) {
+        //input.setAttribute('placeholder', 'Search country');
+      }
+    }
 
   ngOnInit(): void {
     this.initForm();
     this.loadCountries();
   }
 
-  /*------------------------------------------
-    --------------------------------------------
-    moveMap()
-    --------------------------------------------
-    --------------------------------------------*/
-    moveMap(event: google.maps.MapMouseEvent) {
-        if (event.latLng != null) this.center = (event.latLng.toJSON());
-    }
-    
-    /*------------------------------------------
-    --------------------------------------------
-    move()
-    --------------------------------------------
-    --------------------------------------------*/
-    move(event: google.maps.MapMouseEvent) {
-        if (event.latLng != null) this.display = event.latLng.toJSON();
-    }
+  
+
+  /*------------------------------------------moveMap()-------------*/
+  moveMap(event: google.maps.MapMouseEvent) {
+    if (event.latLng != null) this.center = (event.latLng.toJSON());
+  }
+
+  /*-------------------move() --------------------------------------------*/
+  move(event: google.maps.MapMouseEvent) {
+    if (event.latLng != null) this.display = event.latLng.toJSON();
+  }
 
   private initForm(): void {
-    this.contactForm = this.fb.group({
-      dialCode: ['+91', Validators.required],
-      phone: ['', [
-        Validators.required,
-        Validators.pattern(/^[0-9]{6,15}$/)
-      ]]
-    });
-  }
+  this.contactForm = this.fb.group({
+    firstName: ['', Validators.required],
+    email: ['', [Validators.required, Validators.email]],
+    dialCode: ['+91', Validators.required],
+    phone: ['', [
+      Validators.required,
+      Validators.pattern(/^[0-9]{6,15}$/)
+    ]],
+    message: ['']
+  });
+}
 
   private loadCountries(): void {
     this.countriesList = countries.map(c => ({
-        name: c.name.common,
-        dialCode: '' + c.idd.root + (c.idd.suffixes?.[0] || ''),
-        flag: c.flag
-      }))
+      name: c.name.common,
+      dialCode: '' + c.idd.root + (c.idd.suffixes?.[0] || ''),
+      flag: c.flag
+    }))
       .filter(c => c.dialCode !== '+');
   }
-  
-customCountrySearch(term: string, item: any): boolean {
-  term = term.toLowerCase();
-  return (
-    item.name.toLowerCase().includes(term) ||
-    item.dialCode.includes(term) ||
-    item.code.toLowerCase().includes(term)
-  );
-}
+
+  customCountrySearch(term: string, item: any): boolean {
+    term = term.toLowerCase();
+    return (
+      item.name.toLowerCase().includes(term) ||
+      item.dialCode.includes(term) ||
+      item.code.toLowerCase().includes(term)
+    );
+  }
 
 
   submit(): void {
-    console.log(this.contactForm.value);
+  if (this.contactForm.invalid) {
+    this.contactForm.markAllAsTouched();
+    return;
   }
-  
+  console.log(this.contactForm.value);
+}
+
 }

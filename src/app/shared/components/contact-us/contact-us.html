@@ -1,97 +1,105 @@
-<form [formGroup]="contactForm" class="p-5 m-5">
+<form [formGroup]="contactForm" class="contact-page">
 
-  <label class="form-label fw-semibold">
-    Phone Number<span class="text-danger">*</span>
-  </label>
-  <div class="map-container mt-4">
-  <!-- <google-map height="500px"
-            width="900px"
-            [center]="center"
-            [zoom]="zoom"
-            (mapClick)="moveMap($event)"
-            (mapMousemove)="move($event)">
-</google-map> -->
-<!-- <google-map 
-  height="400px" 
-  width="750px" 
-  [center]="center" 
-  [zoom]="zoom">
-</google-map> -->
-  
-<!-- <div>Latitude: {{display?.lat}}</div>
-<div>Longitude: {{display?.lng}}</div> -->
-</div>
-  <div class="phone-wrapper">
+  <div class="contact-grid">
 
-    <!-- DIAL CODE DROPDOWN -->
-    <!-- <ng-select
-      class="dial-code"
-      [items]="countriesList"
-      bindLabel="dialCode"
-      bindValue="dialCode"
-      [searchable]="true"
-      [clearable]="false"
-      [searchPlaceholder]="'Search country'"
-      [dropdownPosition]="'auto'"
-      formControlName="dialCode">
+    <!-- LEFT SIDE -->
+    <div class="contact-left">
 
-     
+      <h2 class="title">Contact Us</h2>
+      <p class="subtitle">
+        Feel free to reach out to us. We’d love to hear from you.
+      </p>
+
+      <div class="map-container">
+        <google-map
+          height="350px"
+          width="100%"
+          [center]="center"
+          [zoom]="zoom"
+          (mapClick)="moveMap($event)"
+          (mapMousemove)="move($event)">
+        </google-map>
+      </div>
+
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="contact-right">
+
+      <!-- First Name -->
+      <div class="form-group">
+        <label>First Name <span>*</span></label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="firstName"
+          placeholder="Enter first name">
+      </div>
+
+      <!-- Email -->
+      <div class="form-group">
+        <label>Email <span>*</span></label>
+        <input
+          type="email"
+          class="form-control"
+          formControlName="email"
+          placeholder="Enter email">
+      </div>
+
+      <!-- Phone (YOUR EXISTING CODE – UNCHANGED) -->
+      <div class="form-group">
+        <label>Phone Number <span>*</span></label>
+
+        <div class="phone-wrapper">
+
+          <ng-select #countrySelect class="dial-code" [items]="countriesList" bindLabel="name" bindValue="dialCode"
+      [searchable]="true" [clearable]="false" [dropdownPosition]="'auto'" formControlName="dialCode">
+
+      <!-- CUSTOM SEARCH INPUT -->
+      <ng-template ng-dropdown-header let-search="search">
+        <input type="text" class="ng-select-search" placeholder="Search country"
+          (input)="search($any($event.target).value)" />
+      </ng-template>
+
+      <!-- SELECTED VALUE -->
       <ng-template ng-label-tmp let-item="item">
         {{ item.dialCode }}
         <span class="arrow">▼</span>
       </ng-template>
 
-   
+      <!-- OPTIONS -->
       <ng-template ng-option-tmp let-item="item">
         {{ item.flag }} {{ item.name }} ({{ item.dialCode }})
       </ng-template>
 
-    </ng-select> -->
-    <ng-select #countrySelect
-  class="dial-code"
-  [items]="countriesList"
-  bindLabel="name"
-  bindValue="dialCode"
-  [searchable]="true"
-  [clearable]="false"
-  [dropdownPosition]="'auto'"
-  formControlName="dialCode">
-
-  <!-- CUSTOM SEARCH INPUT -->
-  <ng-template ng-dropdown-header let-search="search">
-    <input
-      type="text"
-      class="ng-select-search"
-      placeholder="Search country"
-      (input)="search($any($event.target).value)" />
-  </ng-template>
-
-  <!-- SELECTED VALUE -->
-  <ng-template ng-label-tmp let-item="item">
-    {{ item.dialCode }}
-    <span class="arrow">▼</span>
-  </ng-template>
-
-  <!-- OPTIONS -->
-  <ng-template ng-option-tmp let-item="item">
-    {{ item.flag }} {{ item.name }} ({{ item.dialCode }})
-  </ng-template>
-
-</ng-select>
-
-
-
-    
+    </ng-select>
 
     <!-- PHONE INPUT -->
-    <input
-      type="text"
-      class="phone-input"
-      placeholder="0000000000"
-      formControlName="phone">
+    <input type="text" class="phone-input" placeholder="Mobile Number" formControlName="phone">
+        </div>
+      </div>
+
+      <!-- Message -->
+      <div class="form-group">
+        <label>Message</label>
+        <textarea
+          rows="4"
+          class="form-control"
+          formControlName="message"
+          placeholder="Write your message...">
+        </textarea>
+      </div>
+
+      <!-- Submit -->
+      <button
+        type="submit"
+        class="submit-btn"
+        (click)="submit()">
+        Submit
+      </button>
+
+    </div>
 
   </div>
 
 </form>
-
-
