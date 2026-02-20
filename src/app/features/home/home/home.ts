@@ -6,6 +6,7 @@ import { Features } from '../components/features/features';
 import { Faq } from '../components/faq/faq';
 import { FeaturesTwo } from '../components/features-two/features-two';
 
+
 @Component({
   selector: 'app-home',
   imports: [SHARED_IMPORTS,Features,Faq,Carousel,FeaturesTwo],
